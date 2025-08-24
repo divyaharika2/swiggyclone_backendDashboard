@@ -1,0 +1,451 @@
+/******************************/
+/* ADD FIRM SECTION */
+/******************************/
+
+.firmSection {
+  width: 100vw;
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(120deg, #1abc9c 0%, #2c3e50 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Loader overlay used in both */
+.loaderSection {
+  width: 100%;
+  min-height: 300px;
+  background: rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #34495e;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Form container shared styles */
+.tableForm {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(44, 62, 80, 0.14);
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
+  padding: 36px 28px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  border: 1.5px solid #e0eafc;
+  animation: fadeIn 0.65s cubic-bezier(0.42,0,0.58,1);
+  user-select: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98) translateY(30px);}
+  to { opacity: 1; transform: none; }
+}
+
+/* Form heading */
+.tableForm h3 {
+  color: #2c3e50;
+  font-weight: 800;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 16px;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 0 rgba(26,188,156,0.09);
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f4f6f9;
+  margin-top: 0;
+}
+
+/* Inline alert message box */
+.message-success,
+.message-error {
+  margin-bottom: 18px;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: 1.5px solid;
+  font-size: 1rem;
+  font-weight: 500;
+  word-break: break-word;
+  letter-spacing: 0.02em;
+}
+
+.message-success {
+  background: #d4edda;
+  color: #18623d;
+  border-color: #b6dec3;
+}
+
+.message-error {
+  background: #f8d7da;
+  color: #8c2428;
+  border-color: #f5c6cb;
+}
+
+/* Labels */
+.tableForm label {
+  margin-top: 16px;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 1.01rem;
+  color: #234661;
+  transition: color 0.15s ease-in-out;
+  display: block;
+}
+
+/* Text and file inputs */
+.tableForm input[type="text"],
+.tableForm input[type="file"] {
+  width: 100%;
+  padding: 11px 15px;
+  border-radius: 7px;
+  border: 1.5px solid #e2e6ea;
+  font-size: 1.09rem;
+  margin-bottom: 2px;
+  background: #f7fcfc;
+  transition: border-color 0.21s ease, box-shadow 0.22s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.tableForm input[type="text"]:focus,
+.tableForm input[type="file"]:focus {
+  border-color: #1abc9c;
+  box-shadow: 0 0 10px rgba(26, 188, 156, 0.09);
+  background: #fff;
+}
+
+/* Checkbox styling */
+input[type="checkbox"],
+input[type="radio"] {
+  width: 17px;
+  height: 17px;
+  accent-color: #1abc9c;
+  cursor: pointer;
+  margin: 0;
+  border-radius: 4px;
+}
+
+/* Checkbox/group container spacing */
+.checkInp {
+  margin-top: 20px;
+  margin-bottom: 14px;
+}
+
+.boxContainer,
+.regionboxContainer,
+.inputsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 4px;
+}
+
+.checkboxContainer,
+.regionboxContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #34495e;
+}
+
+/* Label margin inside checkbox container */
+.checkboxContainer label,
+.regionboxContainer label {
+  margin-left: 2px;
+  font-size: 0.98rem;
+  font-weight: 500;
+}
+
+/* File input padding */
+input[type="file"] {
+  padding: 8px 0;
+  background: #f7fcfc;
+}
+
+/* Submit button container */
+.btnSubmit {
+  margin-top: 26px;
+  text-align: center;
+}
+
+/* Submit button style */
+.btnSubmit button {
+  background: linear-gradient(92deg, #1abc9c 70%, #00b894 100%);
+  color: #fff;
+  border: none;
+  padding: 12px 0;
+  border-radius: 7px;
+  font-size: 1.13rem;
+  font-weight: 700;
+  width: 100%;
+  max-width: 200px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(26, 188, 156, 0.10);
+  transition: background 0.28s ease, transform 0.19s ease, box-shadow 0.22s ease;
+  user-select: none;
+}
+
+.btnSubmit button:hover,
+.btnSubmit button:focus {
+  background: linear-gradient(92deg, #16a085 50%, #00a97e 100%);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 26px rgba(22, 160, 133, 0.17);
+  outline: none;
+}
+
+/* Accessibility focus outlines */
+.tableForm input:focus-visible,
+.btnSubmit button:focus-visible,
+input[type="checkbox"]:focus-visible,
+input[type="radio"]:focus-visible {
+  outline: 2px solid #1abc9c;
+  outline-offset: 1.5px;
+}
+
+/* Responsive for small devices */
+@media (max-width: 600px) {
+  .addFirmSection,
+  .firmSection {
+    padding: 20px 10px;
+    min-height: auto;
+  }
+  .tableForm {
+    max-width: 98vw;
+    padding: 20px 15px;
+  }
+  .btnSubmit button {
+    max-width: 100%;
+    font-size: 1rem;
+  }
+  .boxContainer,
+  .regionboxContainer,
+  .inputsContainer {
+    gap: 12px;
+  }
+}
+
+
+/******************************/
+/* ADD PRODUCT SECTION */
+/******************************/
+
+.productSection {
+  width: 100vw;
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: radial-gradient(circle at top left, #1abc9c, #2c3e50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Loading message in product section */
+.loaderSection p {
+  margin-top: 12px;
+  color: #34495e;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Reuse form and other styles from above for .tableForm etc. */
+
+/* Success and error message repeated here for clarity */
+.message-success,
+.message-error {
+  margin-bottom: 18px;
+  padding: 12px 18px;
+  border-radius: 7px;
+  font-weight: 500;
+  font-size: 1rem;
+  word-break: break-word;
+  letter-spacing: 0.02em;
+  border: 1.5px solid;
+}
+
+.message-success {
+  background: #d4edda;
+  color: #19692c;
+  border-color: #b6deb6;
+}
+
+.message-error {
+  background: #f8d7da;
+  color: #812b30;
+  border-color: #f5c6cb;
+}
+
+/* Checkbox container */
+.inputsContainer {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 15px;
+  color: #34495e;
+}
+
+/* Accessibility focus outlines included above as well */
+
+/* Responsive tweaks shared via media queries earlier */
+
+/* *********************** */
+/* AllProducts section styles */
+/* *********************** */
+.allProductSection {
+  width: 100vw; /* full viewport width */
+  min-height: 100vh;
+  padding: 40px 0;
+  background: rgb(206, 210, 212);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #000;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center all items horizontally */
+  justify-content: center;
+  margin-top: 0;
+}
+
+.table-responsive {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* centers the table */
+  margin-top: -100px;
+}
+
+.product-table {
+  width: 100vw;            /* responsive width */       /* prevent squishing */
+  border-collapse: collapse;
+  table-layout: fixed;
+  background: radial-gradient(circle at top left, #1abc9c, #2c3e50);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  color: white;
+}
+
+/* Enable scrolling only in tbody */
+.product-table thead,
+.product-table tbody {
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-table thead tr,
+.product-table tbody tr {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-table tbody {
+  max-height: 500px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+/* Distribute four columns evenly */
+.product-table th,
+.product-table td {
+  width: 25%; /* Four columns: 25% each */
+  padding: 18px 0;
+  text-align: center;
+  font-size: 18px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ddd;
+}
+
+.product-table th {
+  background-color: #1e9c8e;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  font-size: 20px;
+}
+
+.product-table img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  object-fit: cover;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.product-table img:hover,
+.product-table img:active {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.product-table button {
+  background-color: #d9534f;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 10px;
+}
+.product-table button:hover {
+  background-color: #c9302c;
+}
+
+/* Optional: custom scrollbar */
+.product-table tbody::-webkit-scrollbar {
+  width: 5px;
+}
+.product-table tbody::-webkit-scrollbar-thumb {
+  background: #1abc9c;
+  border-radius: 4px;
+}
+.product-table tbody::-webkit-scrollbar-track {
+  background: #2c3e50;
+}
+
+
+/* Center the table horizontally within its container */
+.table-responsive {
+  display: flex;
+  justify-content: center; /* centers the table horizontally */
+  width: 100%;
+}
+
+/* Ensure the product table takes desired width */
+.product-table {
+  width: 100vw;      /* or a fixed width like 700px */
+  max-width: 900px;
+  min-width: 900px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  /* other styling */
+  margin: 0 auto;   /* to center if used standalone */
+}
+
+/* Center content in all cells (th and td) vertically and horizontally */
+.product-table th,
+.product-table td {
+  text-align: center;      /* horizontal center */
+  vertical-align: middle;  /* vertical center */
+  padding: 20px 65px;      /* comfortable padding */
+  box-sizing: border-box;
+}
